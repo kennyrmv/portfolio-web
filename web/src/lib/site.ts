@@ -1,10 +1,8 @@
 export const site = {
-  name: "Kenny M",
+  name: "Kenny Medina",
   role: "Ingeniero de agentes de IA",
-  headline: "Construyo agentes de IA que toman acciones reales en producción.",
-  subheadline:
-    "Con evals, observabilidad y human-in-the-loop. No demos de juguete.",
-  availability: "Disponible para proyectos freelance de IA",
+  intro:
+    "Construyo Auyan —un agente de soporte multi-tenant para e-commerce— y Maraca, un tutor con IA que armo en público. Me enfoco en lo que lleva un agente a producción: evals, observabilidad y human-in-the-loop.",
   email: "kennyrmv@gmail.com",
   github: "https://github.com/kennyrmv",
   linkedin: "https://www.linkedin.com/in/kennymedina/",

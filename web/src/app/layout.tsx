@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: `${site.name} — ${site.role}`,
-  description: `${site.headline} ${site.subheadline}`,
+  description: `${site.role}. ${site.intro}`,
 };
 
 export default function RootLayout({
@@ -41,7 +41,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SiteHeader />
-          <main className="flex-1">{children}</main>
+          <main className="flex flex-1 flex-col">{children}</main>
           <SiteFooter />
         </ThemeProvider>
       </body>
