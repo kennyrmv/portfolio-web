@@ -5,6 +5,8 @@ import { ArrowLeft } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { AuyanReplay } from "@/components/auyan-replay";
+import { BrowserFrame } from "@/components/browser-frame";
+import { AuyanChatTranscript } from "@/components/auyan-chat-transcript";
 import { projects } from "@/lib/projects";
 
 const project = projects.find((p) => p.slug === "auyan")!;
@@ -90,6 +92,34 @@ export default function AuyanPage() {
           y dale play.
         </p>
         <AuyanReplay />
+      </section>
+
+      <section className="mt-12">
+        <Eyebrow>Demo · el producto real</Eyebrow>
+        <p className="mt-2 mb-4 text-sm text-pretty text-muted-foreground">
+          Capturas reales del dashboard en staging (datos de prueba, tenant
+          ficticio) — conversación en curso, cola de aprobaciones y una
+          conversación leída como chat.
+        </p>
+        <div className="grid gap-6 sm:grid-cols-2">
+          <BrowserFrame
+            src="/images/auyan/conversation-cambio-direccion.png"
+            alt="Dashboard de Auyan mostrando una conversación de cambio de dirección"
+            url="app.auyan.ai/tenants/lunaria/conversations/a1a1a1a1"
+            width={1440}
+            height={900}
+          />
+          <BrowserFrame
+            src="/images/auyan/approvals-queue.png"
+            alt="Cola de aprobaciones del dashboard de Auyan"
+            url="app.auyan.ai/tenants/lunaria/approvals"
+            width={1440}
+            height={900}
+          />
+        </div>
+        <div className="mt-6">
+          <AuyanChatTranscript />
+        </div>
       </section>
 
       <section className="mt-12">
