@@ -4,7 +4,7 @@ import { type ReactNode } from "react";
 import { ArrowLeft } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
-import { AuyanStats } from "@/components/auyan-stats";
+import { AuyanDashboard } from "@/components/auyan-dashboard";
 import { projects } from "@/lib/projects";
 
 const project = projects.find((p) => p.slug === "auyan")!;
@@ -87,11 +87,12 @@ export default function AuyanPage() {
       <section className="mx-auto mt-10 w-full max-w-5xl px-6">
         <Eyebrow>Demo · el producto real</Eyebrow>
         <p className="mt-2 mb-5 max-w-3xl text-sm text-pretty text-muted-foreground">
-          Así se vería el reporte semanal que recibe un cliente (datos de
-          ejemplo, tenant ficticio en staging) — cuánto resuelve el agente
-          solo, y cómo mejora semana a semana con el flywheel de escalados.
+          El dashboard real, con su menú completo (Atención, Conocimiento,
+          Automatización) y la vista de Reportes: así se vería el informe
+          semanal que recibe un cliente (datos de ejemplo, tenant ficticio en
+          staging).
         </p>
-        <AuyanStats />
+        <AuyanDashboard />
       </section>
 
       <article className="mx-auto w-full max-w-3xl px-6 pt-12 pb-14 sm:pb-20">
