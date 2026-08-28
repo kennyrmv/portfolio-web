@@ -200,10 +200,10 @@ function TrendChart() {
 
 export function AuyanDashboard() {
   return (
-    <div className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-2xl shadow-stone-950/10">
-      <div className="flex">
+    <div className="h-full overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-2xl shadow-stone-950/10">
+      <div className="flex h-full">
         {/* sidebar real: apps/web/components/nav/Sidebar.tsx + nav-items.ts */}
-        <aside className="hidden w-56 shrink-0 flex-col gap-1 border-r border-stone-200 bg-stone-50 p-3 md:flex">
+        <aside className="hidden w-56 shrink-0 flex-col gap-1 overflow-y-auto border-r border-stone-200 bg-stone-50 p-3 md:flex">
           <div className="flex h-8 items-center px-1">
             <span className="text-sm font-semibold tracking-tight text-stone-900">Auyan</span>
           </div>
@@ -251,7 +251,7 @@ export function AuyanDashboard() {
         </aside>
 
         {/* contenido: Reportes */}
-        <div className="min-w-0 flex-1 bg-white p-4 sm:p-6">
+        <div className="min-w-0 flex-1 overflow-y-auto bg-white p-4 sm:p-6">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <div>
               <p className="text-[11px] font-medium tracking-wider text-stone-400 uppercase">

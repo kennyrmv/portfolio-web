@@ -96,7 +96,7 @@ export default function AuyanPage() {
           </p>
         </div>
         <div className="relative left-1/2 w-screen -translate-x-1/2 px-4 sm:px-8">
-          <div className="mx-auto grid max-w-[1400px] gap-4 md:grid-cols-[1fr_360px]">
+          <div className="mx-auto grid max-w-[1400px] gap-4 md:h-[600px] md:grid-cols-[1fr_360px]">
             <AuyanDashboard />
             <AuyanChatWidget />
           </div>
