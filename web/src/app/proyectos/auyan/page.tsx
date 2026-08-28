@@ -5,6 +5,7 @@ import { ArrowLeft } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { AuyanDashboard } from "@/components/auyan-dashboard";
+import { AuyanChatWidget } from "@/components/auyan-chat-widget";
 import { projects } from "@/lib/projects";
 
 const project = projects.find((p) => p.slug === "auyan")!;
@@ -84,15 +85,22 @@ export default function AuyanPage() {
         </p>
       </article>
 
-      <section className="mx-auto mt-10 w-full max-w-5xl px-6">
-        <Eyebrow>Demo · el producto real</Eyebrow>
-        <p className="mt-2 mb-5 max-w-3xl text-sm text-pretty text-muted-foreground">
-          El dashboard real, con su menú completo (Atención, Conocimiento,
-          Automatización) y la vista de Reportes: así se vería el informe
-          semanal que recibe un cliente (datos de ejemplo, tenant ficticio en
-          staging).
-        </p>
-        <AuyanDashboard />
+      <section className="mt-10 w-full">
+        <div className="mx-auto w-full max-w-3xl px-6">
+          <Eyebrow>Demo · el producto real</Eyebrow>
+          <p className="mt-2 mb-5 text-sm text-pretty text-muted-foreground">
+            A la izquierda, el dashboard que usa el equipo de soporte de
+            Lunaria (menú completo, vista de Reportes). A la derecha, el
+            widget que ve el cliente en su propia web — misma conversación,
+            mismo producto (datos de ejemplo, tenant ficticio en staging).
+          </p>
+        </div>
+        <div className="relative left-1/2 w-screen -translate-x-1/2 px-4 sm:px-8">
+          <div className="mx-auto grid max-w-[1400px] gap-4 md:grid-cols-[1fr_360px]">
+            <AuyanDashboard />
+            <AuyanChatWidget />
+          </div>
+        </div>
       </section>
 
       <article className="mx-auto w-full max-w-3xl px-6 pt-12 pb-14 sm:pb-20">
