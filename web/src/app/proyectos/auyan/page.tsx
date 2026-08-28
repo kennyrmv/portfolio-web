@@ -4,7 +4,7 @@ import { type ReactNode } from "react";
 import { ArrowLeft } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
-import { AuyanDashboardPreview } from "@/components/auyan-dashboard-preview";
+import { AuyanStats } from "@/components/auyan-stats";
 import { projects } from "@/lib/projects";
 
 const project = projects.find((p) => p.slug === "auyan")!;
@@ -58,40 +58,43 @@ function Eyebrow({ children }: { children: ReactNode }) {
 
 export default function AuyanPage() {
   return (
-    <article className="mx-auto w-full max-w-3xl px-6 py-14 sm:py-20">
-      <Link
-        href="/#proyectos"
-        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-      >
-        <ArrowLeft className="h-4 w-4" />
-        Proyectos
-      </Link>
+    <>
+      <article className="mx-auto w-full max-w-3xl px-6 pt-14 sm:pt-20">
+        <Link
+          href="/#proyectos"
+          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Proyectos
+        </Link>
 
-      <div className="mt-6 flex flex-wrap items-center gap-2">
-        <Badge variant="secondary" className="font-mono text-[11px] font-normal">
-          {project.status}
-        </Badge>
-        <span className="font-mono text-[11px] tracking-wider text-muted-foreground uppercase">
-          Proyecto propio · startup
-        </span>
-      </div>
-      <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-        Auyan
-      </h1>
-      <p className="mt-3 text-lg text-pretty text-muted-foreground">
-        {project.tagline}
-      </p>
-
-      <section className="mt-10">
-        <Eyebrow>Demo · el producto real</Eyebrow>
-        <p className="mt-2 mb-4 text-sm text-pretty text-muted-foreground">
-          Así se ve el dashboard por dentro (datos de prueba, tenant ficticio):
-          una conversación en curso y la cola de aprobaciones para acciones
-          sensibles. Cambia de vista con el menú o los botones.
+        <div className="mt-6 flex flex-wrap items-center gap-2">
+          <Badge variant="secondary" className="font-mono text-[11px] font-normal">
+            {project.status}
+          </Badge>
+          <span className="font-mono text-[11px] tracking-wider text-muted-foreground uppercase">
+            Proyecto propio · startup
+          </span>
+        </div>
+        <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+          Auyan
+        </h1>
+        <p className="mt-3 text-lg text-pretty text-muted-foreground">
+          {project.tagline}
         </p>
-        <AuyanDashboardPreview />
+      </article>
+
+      <section className="mx-auto mt-10 w-full max-w-5xl px-6">
+        <Eyebrow>Demo · el producto real</Eyebrow>
+        <p className="mt-2 mb-5 max-w-3xl text-sm text-pretty text-muted-foreground">
+          Así se vería el reporte semanal que recibe un cliente (datos de
+          ejemplo, tenant ficticio en staging) — cuánto resuelve el agente
+          solo, y cómo mejora semana a semana con el flywheel de escalados.
+        </p>
+        <AuyanStats />
       </section>
 
+      <article className="mx-auto w-full max-w-3xl px-6 pt-12 pb-14 sm:pb-20">
       <section className="mt-12">
         <Eyebrow>El problema</Eyebrow>
         <p className="mt-3 text-pretty text-muted-foreground">
@@ -168,6 +171,7 @@ export default function AuyanPage() {
           {stack.join(" · ")}
         </p>
       </section>
-    </article>
+      </article>
+    </>
   );
 }
