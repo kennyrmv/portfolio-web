@@ -7,31 +7,43 @@ import { MessageAvatar, MessageGroup } from "@/components/ui/message";
 import { cn } from "@/lib/utils";
 
 // Widget de chat embebible tal y como lo vería un cliente de Lunaria en su
-// propia web — misma conversación y misma paleta ("Cobalto Salto Ángel") que
-// el panel de Auyan de al lado, que es lo que vería el equipo de soporte.
+// propia web — misma paleta ("Cobalto Salto Ángel") que el dashboard de al
+// lado, que es lo que vería el equipo de soporte. Conversación de ejemplo:
+// consulta de envío resuelta por el agente sin escalar (skill L1, solo
+// lectura) — dato ficticio, no viene de ningún cliente real.
 
 type ChatMessage = { from: "customer" | "agent"; text: string; time: string };
 
 const MESSAGES: ChatMessage[] = [
   {
     from: "customer",
-    text: "¡Hola! Acabo de hacer el pedido #9034 pero me equivoqué en la dirección de envío. ¿Podéis cambiarla antes de que salga? Es urgente.",
-    time: "17:41",
+    text: "¡Hola! Quería saber en qué punto está mi pedido #8821 — lo pedí hace 4 días y todavía no he recibido nada.",
+    time: "12:03",
   },
   {
     from: "agent",
-    text: "¡Hola Marta! Claro, dime la dirección correcta y la actualizo ahora mismo. El pedido #9034 todavía no ha salido del almacén, así que llegamos a tiempo.",
-    time: "17:42",
+    text: "¡Hola Laura! Dame un segundo... Tu pedido #8821 salió del almacén ayer y va en camino con Correos Express. Entrega estimada: mañana antes de las 14:00.",
+    time: "12:03",
   },
   {
     from: "customer",
-    text: "Perfecto, es Calle Alcalá 145, 3ºB, 28009 Madrid (antes puse un número mal).",
-    time: "17:44",
+    text: "Genial, gracias. ¿Me pasas el número de seguimiento?",
+    time: "12:04",
   },
   {
     from: "agent",
-    text: "Ya tengo el cambio preparado — solo necesito la confirmación de un compañero antes de aplicarlo porque toca datos de envío ya confirmados. En cuanto se apruebe, te aviso.",
-    time: "17:45",
+    text: "Claro: ES00284471136 — con eso lo sigues en tiempo real. ¿Necesitas algo más?",
+    time: "12:04",
+  },
+  {
+    from: "customer",
+    text: "No, eso era todo. ¡Gracias!",
+    time: "12:05",
+  },
+  {
+    from: "agent",
+    text: "¡De nada, Laura! Que disfrutes tu pedido.",
+    time: "12:05",
   },
 ];
 
@@ -53,10 +65,10 @@ export function AuyanChatWidget() {
 
       <div className="flex-1 space-y-4 overflow-y-auto bg-stone-50 p-4 [color-scheme:light]">
         <MessageGroup>
-          {MESSAGES.map((m) => {
+          {MESSAGES.map((m, i) => {
             const isCustomer = m.from === "customer";
             return (
-              <div key={m.time} className={cn("flex items-end gap-2", !isCustomer && "flex-row-reverse")}>
+              <div key={i} className={cn("flex items-end gap-2", !isCustomer && "flex-row-reverse")}>
                 <MessageAvatar
                   className={cn(
                     "size-6 min-w-6",
