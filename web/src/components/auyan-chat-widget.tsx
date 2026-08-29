@@ -67,30 +67,48 @@ export function AuyanChatWidget() {
         <MessageGroup>
           {MESSAGES.map((m, i) => {
             const isCustomer = m.from === "customer";
+            const avatar = (
+              <MessageAvatar
+                className={cn(
+                  "size-6 min-w-6",
+                  isCustomer ? "bg-stone-200 text-stone-600" : "bg-blue-100 text-blue-700",
+                )}
+              >
+                <span className="text-[10px] font-medium">{isCustomer ? "M" : "A"}</span>
+              </MessageAvatar>
+            );
+            const content = (
+              <div className={cn("flex max-w-[75%] flex-col gap-1", !isCustomer && "items-end")}>
+                <Bubble variant="outline">
+                  <BubbleContent
+                    className={
+                      isCustomer
+                        ? "!border-stone-200 !bg-white !text-stone-800"
+                        : "!border-transparent !bg-blue-600 !text-white"
+                    }
+                  >
+                    {m.text}
+                  </BubbleContent>
+                </Bubble>
+                <span className="px-1 font-mono text-[10px] text-stone-400">{m.time}</span>
+              </div>
+            );
+            // Orden en el DOM = orden visual siempre (sin flex-row-reverse):
+            // así seleccionar y copiar el texto de la conversación da el
+            // orden correcto, en vez de depender de un truco de CSS.
             return (
-              <div key={i} className={cn("flex items-end gap-2", !isCustomer && "flex-row-reverse")}>
-                <MessageAvatar
-                  className={cn(
-                    "size-6 min-w-6",
-                    isCustomer ? "bg-stone-200 text-stone-600" : "bg-blue-100 text-blue-700",
-                  )}
-                >
-                  <span className="text-[10px] font-medium">{isCustomer ? "M" : "A"}</span>
-                </MessageAvatar>
-                <div className={cn("flex max-w-[75%] flex-col gap-1", !isCustomer && "items-end")}>
-                  <Bubble variant="outline">
-                    <BubbleContent
-                      className={
-                        isCustomer
-                          ? "!border-stone-200 !bg-white !text-stone-800"
-                          : "!border-transparent !bg-blue-600 !text-white"
-                      }
-                    >
-                      {m.text}
-                    </BubbleContent>
-                  </Bubble>
-                  <span className="px-1 font-mono text-[10px] text-stone-400">{m.time}</span>
-                </div>
+              <div key={i} className={cn("flex items-end gap-2", !isCustomer && "justify-end")}>
+                {isCustomer ? (
+                  <>
+                    {avatar}
+                    {content}
+                  </>
+                ) : (
+                  <>
+                    {content}
+                    {avatar}
+                  </>
+                )}
               </div>
             );
           })}
