@@ -37,7 +37,7 @@ const MESSAGES: ChatMessage[] = [
 
 export function AuyanChatWidget() {
   return (
-    <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-2xl shadow-stone-950/10">
+    <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-2xl shadow-stone-950/10 [color-scheme:light]">
       <div className="flex items-center gap-2.5 bg-blue-600 px-4 py-3">
         <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/15 text-white">
           <MessageCircle className="size-4" />
@@ -51,7 +51,7 @@ export function AuyanChatWidget() {
         </div>
       </div>
 
-      <div className="flex-1 space-y-4 overflow-y-auto bg-stone-50 p-4">
+      <div className="flex-1 space-y-4 overflow-y-auto bg-stone-50 p-4 [color-scheme:light]">
         <MessageGroup>
           {MESSAGES.map((m) => {
             const isCustomer = m.from === "customer";

@@ -200,7 +200,7 @@ function TrendChart() {
 
 export function AuyanDashboard() {
   return (
-    <div className="h-full overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-2xl shadow-stone-950/10">
+    <div className="h-full overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-2xl shadow-stone-950/10 [color-scheme:light]">
       <div className="flex h-full">
         {/* sidebar real: apps/web/components/nav/Sidebar.tsx + nav-items.ts */}
         <aside className="hidden w-56 shrink-0 flex-col gap-1 overflow-y-auto border-r border-stone-200 bg-stone-50 p-3 md:flex">
