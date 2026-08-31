@@ -244,9 +244,9 @@ export function AuyanDashboard() {
 
           <div className="mt-auto flex items-center gap-2 border-t border-stone-200 px-1 pt-3">
             <div className="flex size-6 items-center justify-center rounded-full bg-stone-800 text-[10px] font-medium text-white">
-              N
+              J
             </div>
-            <span className="truncate text-[11px] text-stone-500">super-admin@auyan…</span>
+            <span className="truncate text-[11px] text-stone-500">johndoe@ejemplo.com</span>
           </div>
         </aside>
 
