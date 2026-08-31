@@ -14,7 +14,7 @@ export const projects: Project[] = [
     slug: "auyan",
     name: "Auyan",
     tagline:
-      "Agente multi-tenant de soporte para e-commerce que resuelve tickets y toma acciones reales con guardrails.",
+      "Agente de soporte para e-commerce, capaz de atender a varios negocios desde el mismo sistema, que resuelve tickets y ejecuta acciones reales sin salirse de límites de seguridad claros.",
     highlights: [
       "RAG por tenant",
       "Eval harness (LLM-as-judge)",
