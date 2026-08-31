@@ -22,7 +22,7 @@ const decisions: [string, string][] = [
   ],
   [
     "Skills tipadas en 3 niveles con human approval en las L3",
-    "L1 lectura, L2 escritura reversible, L3 destructiva. Un agente que puede reembolsar dinero no lo hace sin un gate.",
+    "L1 lectura, L2 escritura reversible, L3 destructiva. Un agente que puede reembolsar dinero no lo hace sin que una persona lo apruebe antes.",
   ],
   [
     "Supervisor pattern por nivel de riesgo",
@@ -139,8 +139,9 @@ export default function AuyanPage() {
           (Sonnet → Opus si la confianza baja de 0.7), puntuando cuatro
           dimensiones: <em>Reasoning, Knowledge, Tools</em> y{" "}
           <em>Brand voice</em>. Un procedimiento no llega a producción hasta
-          pasar un eval gate del 80%. Es la pieza que casi nadie muestra — y la
-          que separa “parece que funciona” de “sé que funciona”.
+          que aprueba esas pruebas con un 80% o más. Es la pieza que casi
+          nadie muestra — y la que separa “parece que funciona” de “sé que
+          funciona”.
         </p>
       </section>
 
@@ -168,8 +169,9 @@ export default function AuyanPage() {
         <p className="mt-3 text-pretty text-muted-foreground">
           Que la diferencia entre un demo y un sistema de producción no es el
           modelo: es todo lo de alrededor — evals, approvals, aislamiento,
-          trazas y la disciplina de no dejar que el agente actúe sin un gate.
-          Construirlo con Claude Code me obligó a pensar el agente como un
+          trazas y la disciplina de no dejar que el agente actúe sin que
+          alguien lo apruebe primero. Construirlo con Claude Code me obligó a
+          pensar el agente como un
           sistema con presupuesto, no como una caja mágica.
         </p>
       </section>
