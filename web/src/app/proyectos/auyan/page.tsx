@@ -7,23 +7,29 @@ import { Badge } from "@/components/ui/badge";
 import { AuyanDashboard } from "@/components/auyan-dashboard";
 import { AuyanChatWidget } from "@/components/auyan-chat-widget";
 import { projects } from "@/lib/projects";
+import { site } from "@/lib/site";
 
 const project = projects.find((p) => p.slug === "auyan")!;
 
 export const metadata: Metadata = {
   title: `${project.name} — Case study`,
-  description: project.tagline,
+  description: project.ogSummary,
   alternates: { canonical: project.href },
+  // Ojo: declarar openGraph aquí NO se fusiona con el del layout raíz, lo
+  // sustituye entero. Por eso siteName y locale se repiten — si se omiten,
+  // desaparecen de la tarjeta y queda anónima.
   openGraph: {
     type: "article",
+    locale: "es_ES",
+    siteName: site.name,
     url: project.href,
     title: `${project.name} — Case study`,
-    description: project.tagline,
+    description: project.ogSummary,
   },
   twitter: {
     card: "summary_large_image",
     title: `${project.name} — Case study`,
-    description: project.tagline,
+    description: project.ogSummary,
   },
 };
 
