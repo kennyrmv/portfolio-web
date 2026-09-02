@@ -14,7 +14,6 @@ del cliente son componentes de verdad, con datos de ejemplo.
 
 ```
 web/    Next.js 16 · React 19 · TypeScript · Tailwind v4 · shadcn/ui · MDX
-docs/   Investigación sobre portafolios de dev IA (14 fuentes)
 ```
 
 ## Desarrollo
