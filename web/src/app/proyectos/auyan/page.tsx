@@ -108,13 +108,13 @@ export default function AuyanPage() {
         <div className="mx-auto w-full max-w-3xl px-6">
           <Eyebrow>Demo · el producto real</Eyebrow>
           <p className="mt-2 mb-5 text-sm text-pretty text-muted-foreground">
-            A la izquierda, el dashboard que usa el equipo de soporte de
-            Lunaria (menú completo, vista de Reportes). A la derecha, el
-            widget que ve el cliente en su propia web — misma conversación,
-            mismo producto (datos de ejemplo, tenant ficticio en staging).
+            El dashboard que usa el equipo de soporte de Lunaria (menú
+            completo, vista de Reportes) y el widget que ve el cliente en su
+            propia web: misma conversación, mismo producto, los dos lados a la
+            vez (datos de ejemplo, tenant ficticio en staging).
           </p>
         </div>
-        <div className="relative left-1/2 w-screen -translate-x-1/2 px-4 sm:px-8">
+        <div className="px-4 sm:px-8">
           <div className="mx-auto grid max-w-[1400px] gap-4 md:h-[600px] md:grid-cols-[1fr_360px]">
             <AuyanDashboard />
             <AuyanChatWidget />

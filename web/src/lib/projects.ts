@@ -7,7 +7,6 @@ export type Project = {
    * description. El tagline es demasiado largo para los tres sitios.
    */
   ogSummary: string;
-  highlights: string[];
   /** Pregunta de cierre del case study. Engancha con lo que se acaba de leer. */
   outro: string;
   stack: string[];
@@ -24,13 +23,6 @@ export const projects: Project[] = [
       "Agente de soporte para e-commerce, capaz de atender a varios negocios desde el mismo sistema, que resuelve tickets y ejecuta acciones reales sin salirse de límites de seguridad claros.",
     ogSummary:
       "Agente de soporte para e-commerce que resuelve tickets y ejecuta acciones reales, con una persona aprobando lo delicado.",
-    highlights: [
-      "RAG por tenant",
-      "Eval harness (LLM-as-judge)",
-      "Human approval en acciones sensibles",
-      "Supervisor pattern",
-      "Observabilidad LangSmith",
-    ],
     outro:
       "¿Tienes un agente que funciona en las pruebas pero no te atreves a soltarlo con clientes reales?",
     stack: ["Python", "FastAPI", "LangGraph", "Claude", "Supabase", "pgvector"],
@@ -45,12 +37,6 @@ export const projects: Project[] = [
       "App móvil que convierte cualquier tema en un curso, generado y adaptado a tus errores por un agente de IA.",
     ogSummary:
       "App móvil que convierte cualquier tema en un curso y lo adapta a los errores de quien aprende.",
-    highlights: [
-      "Grafo sin framework de grafos",
-      "Generación perezosa + adaptativa (ZPD)",
-      "Estado del agente tipado en Postgres",
-      "Structured outputs + Zod",
-    ],
     outro:
       "¿Se te ocurre un producto donde la IA tenga que adaptarse a cada persona que lo usa?",
     stack: ["Expo / React Native", "Supabase Edge Functions", "Postgres", "Claude Opus 4.8"],
