@@ -23,3 +23,7 @@ venv/
 # Misc
 .DS_Store
 *.log
+
+# Documentos de trabajo privados — se quedan en local, nunca se publican
+/CLAUDE.md
+/docs/progress.md
