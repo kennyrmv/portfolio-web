@@ -106,7 +106,7 @@ export function MaracaArchitecture() {
           instantáneo.
         </Node>
 
-        <Flow label="escribe el outline · generación perezosa" />
+        <Flow label="escribe el índice del curso · las lecciones se generan al abrirlas" />
 
         {/* Estado compartido */}
         <div className="w-full rounded-lg border border-border bg-secondary/40 p-4">
@@ -135,7 +135,7 @@ export function MaracaArchitecture() {
           <div className="mb-1 flex items-center gap-2">
             <RotateCw className="h-3.5 w-3.5 text-brand" />
             <span className="font-mono text-[11px] tracking-wider text-brand uppercase">
-              Feedback loop · ZPD
+              El ciclo que adapta cada lección
             </span>
           </div>
 
