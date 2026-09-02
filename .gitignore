@@ -28,3 +28,9 @@ venv/
 # Nada de notas personales ni investigación en el repo público.
 /CLAUDE.md
 /docs/
+
+# Material de referencia de Auyan (repo privado). NUNCA se publica: vive aquí
+# solo para consultarlo mientras se escribe el case study.
+/graph.py
+/untitled.md
+/*.py
