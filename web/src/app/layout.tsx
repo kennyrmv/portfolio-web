@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     default: `${site.name} — ${site.role}`,
     template: `%s · ${site.name}`,
   },
-  description: `${site.role}. ${site.intro}`,
+  description: site.description,
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -33,12 +33,12 @@ export const metadata: Metadata = {
     siteName: site.name,
     url: "/",
     title: `${site.name} — ${site.role}`,
-    description: `${site.role}. ${site.intro}`,
+    description: site.description,
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — ${site.role}`,
-    description: `${site.role}. ${site.intro}`,
+    description: site.description,
   },
 };
 
