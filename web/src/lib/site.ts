@@ -7,7 +7,7 @@ export const site = {
   // Inspector de LinkedIn, que guarda la preview vieja de forma agresiva.
   url: "https://portfolio-opal-rho-13.vercel.app",
   intro:
-    "Construyo Auyan —un agente de soporte multi-tenant para e-commerce— y Maraca, una app que convierte cualquier tema en un curso con IA, que armo en público. Me enfoco en lo que lleva un agente a producción: evals, observabilidad y human-in-the-loop.",
+    "Construyo Auyan —un agente de soporte para tiendas online, capaz de atender a varios negocios desde el mismo sistema— y Maraca, una app que convierte cualquier tema en un curso, que armo en público. Me centro en lo que separa un demo de un sistema real: probarlo en serio, poder ver por qué hizo lo que hizo, y que una persona apruebe lo delicado.",
   // La bio de arriba es para leerla en pantalla. Esta es para los metadatos:
   // Google corta sobre los 155 caracteres y las redes sobre los 125, así que
   // aquí manda la brevedad, no la exhaustividad.

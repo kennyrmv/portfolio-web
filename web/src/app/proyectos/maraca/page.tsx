@@ -36,26 +36,25 @@ export const metadata: Metadata = {
 const decisions: [string, string][] = [
   [
     "Es un grafo, pero sin framework de grafos",
-    "Una sola decisión en runtime (routing) y un solo feedback loop no justifican LangGraph ni un servicio aparte. Postgres es el estado tipado, Realtime el streaming y las Edge Functions los nodos. Saber cuándo no meter el framework de moda es parte del diseño.",
+    "El curso avanza por pasos encadenados y con un ciclo que se retroalimenta — que es, conceptualmente, un grafo. Pero con una sola bifurcación real y un solo ciclo, montar un framework de grafos y un servicio aparte habría sido infraestructura para un problema que no tengo. La base de datos guarda el estado, y cada paso es una función. Saber cuándo NO meter el framework de moda es parte del diseño. (Por dentro: Postgres como estado tipado, Realtime para el streaming y Edge Functions como nodos, en vez de LangGraph.)",
   ],
   [
-    "Generación perezosa + adaptativa",
-    "El outline completo se genera de una (barato, deja el path visible). El contenido de cada lección se genera al abrirla, inyectando tus learning records recientes. Menos tokens y mejor pedagogía: contenido adaptado rinde más que contenido fijo.",
+    "El índice se genera entero; cada lección, al abrirla",
+    "El esquema del curso se crea de una sola vez —es barato y deja ver el camino completo desde el principio—. El contenido de cada lección se escribe en el momento de abrirla, teniendo en cuenta lo que ya has fallado antes. Sale más barato y enseña mejor: una lección hecha a tu medida rinde más que una fija.",
   ],
   [
-    "Structured outputs con doble validación Zod",
-    "La API garantiza la forma del JSON; Zod valida lo que structured outputs ignora (rangos, que el índice de la respuesta correcta exista) y normaliza los slugs de concepto para que una deriva del modelo no corrompa los learning records.",
+    "Lo que devuelve el modelo se valida dos veces",
+    "La API garantiza que el JSON venga con la forma correcta, pero no que tenga sentido. Una segunda validación comprueba lo que la primera ignora — que los rangos sean válidos, que la respuesta marcada como correcta exista de verdad— y unifica cómo se nombra cada concepto, para que una variación del modelo no ensucie el registro de lo que sabes. (Por dentro: structured outputs de la API más esquemas Zod.)",
   ],
   [
-    "El progreso es autoritativo en el servidor",
-    "XP, racha y desbloqueo se escriben solo vía un RPC security definer, idempotente. El cliente no puede otorgarse XP ni saltarse el orden del curso.",
+    "El progreso lo lleva el servidor, no la app",
+    "Los puntos, la racha y el desbloqueo de lecciones solo se escriben desde el servidor, y repetir la misma llamada no los duplica. La app no puede regalarse puntos ni saltarse el orden del curso aunque alguien la manipule.",
   ],
   [
     "Un solo modelo, esfuerzo variable",
-    "No hay model routing por costo: Opus 4.8 con thinking adaptativo y effort alto para el outline, medio para la lección. En v1 prioricé calidad pedagógica sobre ahorro, con volumen bajo.",
+    "Aquí no reparto el trabajo entre modelos baratos y caros: uso el mismo para todo, pero pidiéndole que piense más o menos según la tarea — a fondo para diseñar el curso, a medio gas para escribir una lección. En esta primera versión prioricé la calidad de lo que se enseña sobre el ahorro, porque el volumen todavía es bajo. (Por dentro: Claude Opus 4.8 con thinking adaptativo, effort alto y medio.)",
   ],
 ];
-
 const stack = [
   "Expo / React Native",
   "Supabase Edge Functions (Deno)",
@@ -103,8 +102,9 @@ export default function MaracaPage() {
       <section className="mt-10">
         <Eyebrow>Arquitectura · el agente</Eyebrow>
         <p className="mt-2 mb-4 text-sm text-pretty text-muted-foreground">
-          El corazón de Maraca: un workflow con routing y un feedback loop que
-          adapta cada lección a tus errores. Sin framework de grafos.
+          El corazón de Maraca: los pasos que sigue el agente y el ciclo que
+          adapta cada lección a los errores de quien aprende. Sin framework de
+          grafos.
         </p>
         <MaracaArchitecture />
       </section>
@@ -137,52 +137,58 @@ export default function MaracaPage() {
       <section className="mt-12">
         <Eyebrow>Cómo se adapta · el loop</Eyebrow>
         <p className="mt-3 text-pretty text-muted-foreground">
-          Cuando terminas una lección, el servidor anota{" "}
+          Cuando terminas una lección, el servidor guarda una{" "}
           <strong className="font-medium text-foreground">
-            learning records
+            ficha por concepto
           </strong>{" "}
-          por concepto: <em>strength</em> si la bordaste, <em>misconception</em>{" "}
-          en lo que fallaste. La próxima lección que abras los lee y se moldea a
-          ellos —re-enseña lo débil, integra lo dominado—. Es un Bayesian
-          knowledge tracing “de los pobres”: sin modelo probabilístico, pero
-          apuntando a la misma zona de desarrollo próximo que persigue el
-          Birdbrain de Duolingo.
+          con dos cosas: qué dominaste y qué entendiste mal. La siguiente
+          lección que abras lee esas fichas y se moldea a ellas — vuelve sobre
+          lo que flojeas y da por sabido lo que ya controlas. Es una versión
+          humilde de lo que hacen los sistemas que estiman qué sabe cada
+          alumno: sin modelo estadístico detrás, pero buscando el mismo punto
+          —ni tan fácil que aburra, ni tan difícil que frustre— que persigue el
+          motor de Duolingo.
         </p>
       </section>
 
       <section className="mt-12">
         <Eyebrow>La pedagogía no es decorativa</Eyebrow>
         <p className="mt-3 text-pretty text-muted-foreground">
-          El método sale de meta-análisis grandes, no de intuición: retrieval
-          practice (los ejercicios obligan a recuperar de memoria, no a releer),
-          dificultad deseable (storage strength sobre fluidez ilusoria), worked
-          examples antes de evaluar, y un recap obligatorio al cierre. Los
-          tutores que adaptan la secuencia rinden cerca de una tutoría humana
-          1:1 — y la adaptación, no el modelo, es lo que mueve la aguja.
+          El método no sale de la intuición, sale de estudios que agregan
+          cientos de experimentos. Cuatro ideas lo sostienen: los ejercicios te
+          obligan a recordar en vez de releer, porque el esfuerzo de recuperar
+          es lo que fija; cuesta un poco más de lo cómodo a propósito, porque
+          lo fácil da sensación de aprender sin que quede nada; se enseña con
+          ejemplos ya resueltos antes de pedirte que lo hagas tú; y cada
+          lección cierra con un repaso obligatorio. Un tutor que adapta el
+          orden a cada alumno se acerca al rendimiento de una clase
+          particular — y lo que mueve la aguja es esa adaptación, no qué
+          modelo de IA haya debajo.
         </p>
       </section>
 
       <section className="mt-12">
         <Eyebrow>Límites honestos</Eyebrow>
         <p className="mt-3 text-pretty text-muted-foreground">
-          Building in public, v1. El cliente computa la corrección de cada
-          ejercicio y la manda al RPC; el servidor es autoritativo en XP y racha,
-          pero validar las respuestas contra el contenido es hardening
-          pendiente. El repaso espaciado dirigido, las portadas generadas y el
-          intent práctico/teórico (clasificar el tema para que un curso de cocina
-          se practique, no se teorice) están diseñados pero aún en el roadmap.
+          Primera versión, construida en público. Hoy es la app la que decide
+          si acertaste un ejercicio y se lo comunica al servidor; los puntos y
+          la racha sí los controla el servidor, pero comprobar las respuestas
+          contra el contenido real está pendiente. También quedan diseñados,
+          pero sin construir: los repasos espaciados en el tiempo, las portadas
+          de curso generadas, y distinguir un tema que se practica de uno que
+          se estudia (que un curso de cocina no acabe siendo teoría).
         </p>
       </section>
 
       <section className="mt-12">
         <Eyebrow>Qué aprendí</Eyebrow>
         <p className="mt-3 text-pretty text-muted-foreground">
-          Que “agente” no es sinónimo de “framework de agentes”. Un estado
-          tipado en la base de datos más un loop bien definido te dan casi todo
-          lo que un grafo promete —estado compartido, streaming, persistencia—
-          sin montar infra que no necesitas. Y que el reto de verdad no fue
-          llamar al modelo, sino diseñar el contrato de datos que hace que cada
-          lección dependa de la anterior.
+          Que “agente” no es sinónimo de “framework de agentes”. Guardar bien
+          el estado en la base de datos y definir con cuidado el ciclo te da
+          casi todo lo que promete la infraestructura de moda, sin montarla. Y
+          que el reto de verdad no fue llamar al modelo —eso es lo fácil— sino
+          diseñar cómo se guardan los datos para que cada lección dependa de
+          verdad de la anterior.
         </p>
       </section>
 
