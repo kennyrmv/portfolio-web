@@ -24,6 +24,7 @@ venv/
 .DS_Store
 *.log
 
-# Documentos de trabajo privados — se quedan en local, nunca se publican
+# Documentos de trabajo privados — se quedan en local, nunca se publican.
+# Nada de notas personales ni investigación en el repo público.
 /CLAUDE.md
-/docs/progress.md
+/docs/
