@@ -8,6 +8,8 @@ export type Project = {
    */
   ogSummary: string;
   highlights: string[];
+  /** Pregunta de cierre del case study. Engancha con lo que se acaba de leer. */
+  outro: string;
   stack: string[];
   status: string;
   href: string;
@@ -29,6 +31,8 @@ export const projects: Project[] = [
       "Supervisor pattern",
       "Observabilidad LangSmith",
     ],
+    outro:
+      "¿Tienes un agente que funciona en las pruebas pero no te atreves a soltarlo con clientes reales?",
     stack: ["Python", "FastAPI", "LangGraph", "Claude", "Supabase", "pgvector"],
     status: "En staging",
     href: "/proyectos/auyan",
@@ -47,6 +51,8 @@ export const projects: Project[] = [
       "Estado del agente tipado en Postgres",
       "Structured outputs + Zod",
     ],
+    outro:
+      "¿Se te ocurre un producto donde la IA tenga que adaptarse a cada persona que lo usa?",
     stack: ["Expo / React Native", "Supabase Edge Functions", "Postgres", "Claude Opus 4.8"],
     status: "Building in public",
     href: "/proyectos/maraca",
