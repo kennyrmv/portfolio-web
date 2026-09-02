@@ -12,6 +12,18 @@ const project = projects.find((p) => p.slug === "maraca")!;
 export const metadata: Metadata = {
   title: `${project.name} — Case study`,
   description: project.tagline,
+  alternates: { canonical: project.href },
+  openGraph: {
+    type: "article",
+    url: project.href,
+    title: `${project.name} — Case study`,
+    description: project.tagline,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${project.name} — Case study`,
+    description: project.tagline,
+  },
 };
 
 const decisions: [string, string][] = [

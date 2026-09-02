@@ -2,6 +2,8 @@ export type Project = {
   slug: string;
   name: string;
   tagline: string;
+  /** Una línea, para la imagen Open Graph. El tagline es demasiado largo ahí. */
+  ogSummary: string;
   highlights: string[];
   stack: string[];
   status: string;
@@ -15,6 +17,8 @@ export const projects: Project[] = [
     name: "Auyan",
     tagline:
       "Agente de soporte para e-commerce, capaz de atender a varios negocios desde el mismo sistema, que resuelve tickets y ejecuta acciones reales sin salirse de límites de seguridad claros.",
+    ogSummary:
+      "Resuelve tickets y ejecuta acciones reales, con una persona aprobando lo delicado.",
     highlights: [
       "RAG por tenant",
       "Eval harness (LLM-as-judge)",
@@ -32,6 +36,8 @@ export const projects: Project[] = [
     name: "Maraca",
     tagline:
       "App móvil que convierte cualquier tema en un curso, generado y adaptado a tus errores por un agente de IA.",
+    ogSummary:
+      "Convierte cualquier tema en un curso que se adapta a los errores de quien aprende.",
     highlights: [
       "Grafo sin framework de grafos",
       "Generación perezosa + adaptativa (ZPD)",
