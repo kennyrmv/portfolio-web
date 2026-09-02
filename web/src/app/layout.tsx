@@ -18,8 +18,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${site.name} — ${site.role}`,
+  // Sin metadataBase, Next no puede convertir en absolutas las rutas de las
+  // imágenes OG — y una og:image relativa no la resuelve ningún cliente.
+  metadataBase: new URL(site.url),
+  title: {
+    default: `${site.name} — ${site.role}`,
+    template: `%s · ${site.name}`,
+  },
   description: `${site.role}. ${site.intro}`,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "es_ES",
+    siteName: site.name,
+    url: "/",
+    title: `${site.name} — ${site.role}`,
+    description: `${site.role}. ${site.intro}`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — ${site.role}`,
+    description: `${site.role}. ${site.intro}`,
+  },
 };
 
 export default function RootLayout({
