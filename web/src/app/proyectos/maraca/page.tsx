@@ -5,6 +5,7 @@ import { ArrowLeft } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { MaracaArchitecture } from "@/components/maraca-architecture";
+import { ProjectOutro } from "@/components/project-outro";
 import { projects } from "@/lib/projects";
 import { site } from "@/lib/site";
 
@@ -191,6 +192,8 @@ export default function MaracaPage() {
           {stack.join(" · ")}
         </p>
       </section>
+
+      <ProjectOutro slug="maraca" />
     </article>
   );
 }
