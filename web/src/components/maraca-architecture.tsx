@@ -26,7 +26,7 @@ function Node({
 }) {
   return (
     <div className="w-full rounded-lg border border-border bg-card/50 p-4">
-      <div className="flex items-center gap-2.5">
+      <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
         <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border font-mono text-[11px] text-muted-foreground">
           {n}
         </span>
@@ -110,7 +110,7 @@ export function MaracaArchitecture() {
 
         {/* Estado compartido */}
         <div className="w-full rounded-lg border border-border bg-secondary/40 p-4">
-          <div className="flex items-center gap-2.5">
+          <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
             <span className="font-mono text-sm text-foreground">Postgres</span>
             <span className="ml-auto font-mono text-[10px] tracking-wider text-muted-foreground uppercase">
               estado compartido tipado
